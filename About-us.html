@@ -1,0 +1,1081 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hero Section</title>
+<!-- <link rel="stylesheet" href="style.css"> -->
+ 
+ <style>
+    * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+      width: 100%;
+    height: 120px;              /* 👈 black area kam ho jaayega */
+    padding: 0 20px;     
+    z-index: 1000;
+    transition: all 0.4s ease;
+    padding: 15px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: transparent;
+}
+
+.header.scrolled {
+    background: rgba(0, 0, 0, 0.92);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    padding: 12px 5%;          /* slightly smaller when scrolled */
+}
+
+.logo-img {
+    height: 70px;               /* better size for navbar */
+    width: auto;
+    max-width: 220px;
+    transition: transform 0.3s ease;
+}
+
+.logo-img:hover {
+    transform: scale(1.06);
+}
+
+.nav-menu {
+    display: flex;
+    gap: 45px;                  /* space between links */
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-menu li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.nav-menu li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -6px;
+    left: 0;
+    background: #ff0000;        /* red underline on hover */
+    transition: width 0.3s ease;
+}
+
+.nav-menu li a:hover {
+    color: #ff0000;
+}
+
+.nav-menu li a:hover::after {
+    width: 100%;
+}
+
+      .logo {
+    font-size: 0; /* Hide any fallback text size */
+}
+
+.logo-img {
+    height: 180px;          /* Adjust this value to fit your design – try 45–60px */
+    width: auto;           /* Keeps aspect ratio */
+    max-width: 220px;      /* Prevent it from getting too wide on large screens */
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.logo-img:hover {
+    transform: scale(1.05); /* Subtle hover effect for better UX */
+}
+        .header-icons {
+            display: flex;
+            gap: 20px;
+        }
+        .header-icons svg {
+            width: 24px;
+            height: 24px;
+            fill: #fff;
+        }
+/* HERO SECTION */
+.hero {
+  height: 420px;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* CONTENT */
+.hero-content {
+  position: relative;
+  width: 100%;
+  padding: 0 5%;
+}
+
+/* TEXT */
+.hero-content h1 {
+  color: #fff;
+  font-size: 48px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  line-height: 1.3;
+  z-index: 2;
+  position: relative;
+}
+
+/* RED LINES */
+.red-line {
+  display: block;
+  height: 8px;
+  width: 100%;
+  background: #8b0000;
+  position: absolute;
+  left: 0;
+}
+
+.red-line.top {
+  top: 50%;
+  transform: translateY(-65px);
+}
+
+.red-line.bottom {
+  top: 50%;
+  transform: translateY(55px);
+}
+
+.about-section {
+  padding: 100px 6%;
+  background: #fff;
+}
+
+.about-container {
+  display: flex;
+  gap: 60px;
+  position: relative;
+  align-items: flex-start;
+}
+
+/* IMAGE */
+.about-image img {
+  width: 600px;
+  height: 580px;
+  border-radius: 6px;
+}
+
+/* CONTENT */
+.about-content h2 {
+  font-size: 38px;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+.about-content h2 span {
+  color: #e60000;
+}
+
+.about-content p {
+  font-size: 15px;
+  color: #555;
+  line-height: 1.7;
+  margin-bottom: 15px;
+  max-width: 520px;
+}
+
+/* FEATURES */
+.features {
+  display: flex;
+  gap: 40px;
+  margin-top: 30px;
+}
+
+.feature-box {
+  display: flex;
+  gap: 15px;
+  align-items: flex-start;
+}
+
+.feature-box .icon {
+  font-size: 28px;
+  color: #e60000;
+}
+
+.feature-box h4 {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.feature-box p {
+  font-size: 14px;
+  color: #666;
+  margin: 0;
+}
+
+/* EXPERIENCE BADGE */
+.experience-badge {
+  position: absolute;
+  bottom: -40px;
+  left: 320px;
+  background: #e60000;
+  color: #fff;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.experience-badge h3 {
+  font-size: 36px;
+  margin: 0;
+  font-weight: 800;
+}
+
+.experience-badge span {
+  font-size: 13px;
+  line-height: 1.2;
+}
+.services-section {
+  padding: 100px 6%;
+  background: #fff;
+}
+
+.services-container {
+  display: flex;
+  align-items: center;
+  gap: 70px;
+}
+
+/* LEFT CONTENT */
+.services-content {
+  max-width: 600px;
+}
+
+.small-title {
+  color: #e60000;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.services-content h2 {
+  font-size: 48px;
+  font-weight: 800;
+  margin: 15px 0 20px;
+}
+
+.services-content h2 span {
+  color: #e60000;
+}
+
+.intro {
+  color: #555;
+  font-size: 16px;
+  line-height: 1.7;
+  margin-bottom: 25px;
+}
+
+/* LIST */
+.service-list {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 35px;
+}
+
+.service-list li {
+  position: relative;
+  padding-left: 40px;
+  margin-bottom: 14px;
+  font-size: 15px;
+  color: #111;
+}
+
+.service-list li::before {
+  content: "✔";
+  position: absolute;
+  left: 0;
+  top: 2px;
+  width: 26px;
+  height: 26px;
+  background: #e60000;
+  color: #fff;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 26px;
+  font-size: 14px;
+}
+
+/* CTA */
+.bottom-cta {
+  display: flex;
+  align-items: center;
+  gap: 35px;
+}
+
+.support {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.support-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 2px solid #e60000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #e60000;
+  font-size: 20px;
+}
+
+.support small {
+  display: block;
+  color: #777;
+}
+
+.support strong {
+  font-size: 18px;
+}
+
+/* BUTTON */
+.btn-book {
+  background: #e60000;
+  color: #fff;
+  padding: 14px 28px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.btn-book:hover {
+  background: #c40000;
+}
+
+/* IMAGE */
+.services-image img {
+  width: 530px;
+  height: 520px;
+  border-radius: 6px;
+}
+.stats-section {
+  background: #111;
+  padding: 80px 6%;
+}
+
+.stats-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+}
+
+.stat-box {
+  flex: 1;
+}
+
+.stat-box h2 {
+  font-size: 60px;
+  color: #ff0000;
+  font-weight: 800;
+}
+
+.stat-box p {
+  margin-top: 10px;
+  font-size: 16px;
+  color: #fff;
+  font-weight: 500;
+}
+
+/* Divider line */
+.divider {
+  width: 1px;
+  height: 80px;
+  background: rgba(255,255,255,0.3);
+}
+
+.info-section {
+  padding: 100px 6%;
+  background: #fff;
+}
+
+.info-container {
+  display: flex;
+  gap: 80px;
+}
+
+/* BOX */
+.info-box {
+  flex: 1;
+}
+
+/* TITLES */
+.section-title {
+  font-size: 28px;
+  font-weight: 800;
+  margin-bottom: 30px;
+}
+
+.red {
+  color: #e60000;
+}
+
+/* FLEX CONTENT */
+.info-flex {
+  display: flex;
+  gap: 30px;
+  align-items: flex-start;
+}
+
+.info-flex img {
+  width: 240px;
+  border-radius: 14px;
+  object-fit: cover;
+}
+
+/* TEXT */
+.info-text p {
+  font-size: 15px;
+  color: #333;
+  line-height: 1.7;
+  margin-bottom: 15px;
+}
+
+/* ARROW LIST */
+.arrow-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 15px;
+}
+
+.arrow-list li {
+  position: relative;
+  padding-left: 32px;
+  margin-bottom: 12px;
+  font-size: 15px;
+}
+
+.arrow-list li::before {
+  content: "➜";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #e60000;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+/* SUB HEADINGS */
+.sub-red {
+  color: #e60000;
+  font-size: 18px;
+  margin-top: 20px;
+  margin-bottom: 8px;
+}
+
+ /* Footer Styles */
+        .footer {
+            background-color: #fff;
+            color: #000;
+            padding: 40px 20px 20px;
+            font-family: Arial, sans-serif;
+        }
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+        }
+        .footer-column h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+        .footer-column p {
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+        .footer-column ul {
+            list-style: none;
+        }
+        .footer-column ul li {
+            margin-bottom: 8px;
+        }
+        .footer-column ul li a {
+            color: #000;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+        .footer-column ul li a:hover {
+            color: #666;
+        }
+        .newsletter-btn {
+            background: #000;
+            color: #fff;
+            border: none;
+            padding: 12px 24px;
+            text-transform: uppercase;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background 0.3s;
+        }
+        .newsletter-btn:hover {
+            background: #333;
+        }
+        .footer-bottom {
+            border-top: 1px solid #ccc;
+            padding-top: 20px;
+            margin-top: 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .footer-bottom p {
+            font-size: 0.8rem;
+            opacity: 0.8;
+        }
+        .language-selector {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .language-selector select {
+            background: transparent;
+            border: 1px solid #000;
+            padding: 5px 10px;
+            font-size: 0.9rem;
+        }
+        .social-icons {
+            display: flex;
+            gap: 10px;
+        }
+        .social-icons a {
+            display: inline-block;
+            width: 32px;
+            height: 32px;
+            background: #000;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 32px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.2rem;
+        }
+        .globe-icon {
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+
+        .tab-section {
+  padding: 100px 6%;
+  background: #fff;
+}
+
+.tab-container {
+  display: flex;
+  gap: 70px;
+}
+
+/* LEFT BUTTONS */
+.tab-buttons {
+  width: 280px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.tab-btn {
+  padding: 16px 20px;
+  border-radius: 30px;
+  border: none;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  background: #f1f1f1;
+  transition: 0.3s;
+  text-align: left;
+}
+
+.tab-btn.active {
+  background: #e60000;
+  color: #fff;
+}
+
+.tab-btn:hover {
+  background: #e60000;
+  color: #fff;
+}
+
+/* RIGHT CONTENT */
+.tab-content {
+  flex: 1;
+}
+
+.tab-panel {
+  display: none;
+  animation: fade 0.4s ease;
+}
+
+.tab-panel.active {
+  display: block;
+}
+
+.tab-panel h2 {
+  font-size: 34px;
+  margin-bottom: 20px;
+  font-weight: 800;
+}
+
+.tab-panel h2 span {
+  color: #e60000;
+}
+
+.tab-panel p {
+  font-size: 16px;
+  line-height: 1.7;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+/* ANIMATION */
+@keyframes fade {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+ </style>
+</head>
+<body>
+<header class="header">
+    <div class="logo">
+      <a href="index.html">
+        <img src="assets/tayyab.png" alt="PAS - PETROLHEADS AUTOMOTIVE" class="logo-img">
+        </a>
+    </div>
+    
+    <nav>
+        <ul class="nav-menu">
+            <li><a href="About-us.html">Who We Are</a></li>
+            <li><a href="#what-we-do">What We Do</a></li>
+            <li><a href="#car-brands">Car Brands</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-content">
+    <span class="red-line top"></span>
+
+    <h1>Learn About Us: Where Quality Car Repairs Done</h1>
+
+    <span class="red-line bottom"></span>
+  </div>
+</section>
+
+<section class="about-section">
+  <div class="about-container">
+
+    <!-- LEFT IMAGE -->
+    <div class="about-image">
+      <img src="assets/about1.webp" alt="Car Repair Expert">
+    </div>
+
+    <!-- RIGHT CONTENT -->
+    <div class="about-content">
+      <h2>
+        London's Leading <span>Car Repair &<br>Maintenance</span> Services Provider
+      </h2>
+
+      <p>
+        London Motor Sports has become one of the London’s leading independent
+        garage in vehicle servicing, maintenance and repairs. Proven experience
+        of more than 6 years, evolving the best car repair garage in W12.
+      </p>
+
+      <p>
+        We are very linear for our clients, such as if a booking is cancelled,
+        we will refund the amount. Whether there are any brake failures,
+        engine replacements or other mechanical issues, our team will diagnose
+        properly and repair your damage.
+      </p>
+
+      <p>
+        Our expert mates burn the midnight oil to recover the claims, and we
+        make sure that your cars move to and fro with proper repair and
+        sustenance.
+      </p>
+
+      <!-- FEATURES -->
+      <div class="features">
+        <div class="feature-box">
+          <div class="icon">⏱️</div>
+          <h4>Vast Experience</h4>
+          <p>Ruling the auto repair & rental industry for over 6 years.</p>
+        </div>
+
+        <div class="feature-box">
+          <div class="icon">⚙️</div>
+          <h4>Top-Notch Repair Services</h4>
+          <p>With 60+ repair & maintenance services, we proved ourself.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- EXPERIENCE BADGE -->
+    <div class="experience-badge">
+      <h3>06+</h3>
+      <span>Years<br>Experience</span>
+    </div>
+
+  </div>
+</section>
+
+<section class="services-section">
+  <div class="services-container">
+
+    <!-- LEFT CONTENT -->
+    <div class="services-content">
+      <span class="small-title">Systematize Services</span>
+
+      <h2>
+        Jack of All <span>Trades</span>
+      </h2>
+
+      <p class="intro">
+        The professionals at LMS prioritize the satisfaction of the customers.
+        Whatever dilemma is blocking your safe ride and adventurous journey,
+        we will resolve it without delay. Do you know how? Because we have:
+      </p>
+
+      <ul class="service-list">
+        <li>Savvy professionals available 6 days a week</li>
+        <li>Free booking services</li>
+        <li>Myriad of car repair services</li>
+        <li>Mark-free replacement of engine etc</li>
+        <li>Vetted mechanics</li>
+        <li>Discounts for flexibility</li>
+      </ul>
+
+      <div class="bottom-cta">
+        <div class="support">
+          <div class="support-icon">📞</div>
+          <div>
+            <small>Free Support</small>
+            <strong>+44 20 3337 1831</strong>
+          </div>
+        </div>
+
+        <a href="#" class="btn-book">Book Appointment</a>
+      </div>
+    </div>
+
+    <!-- RIGHT IMAGE -->
+    <div class="services-image">
+      <img src="assets/about2.webp" alt="Car Mechanic">
+    </div>
+
+  </div>
+</section>
+
+<section class="stats-section">
+  <div class="stats-container">
+
+    <div class="stat-box">
+      <h2 class="counter" data-target="1300">0</h2>
+      <p>5-Star Reviews</p>
+    </div>
+
+    <span class="divider"></span>
+
+    <div class="stat-box">
+      <h2 class="counter" data-target="6">0</h2>
+      <p>Years of Experience</p>
+    </div>
+
+    <span class="divider"></span>
+
+    <div class="stat-box">
+      <h2 class="counter" data-target="100">0</h2>
+      <p>Repair Services</p>
+    </div>
+
+    <span class="divider"></span>
+
+    <div class="stat-box">
+      <h2 class="counter" data-target="98" data-suffix="%">0</h2>
+      <p>Repeated Customers</p>
+    </div>
+
+  </div>
+</section>
+
+<section class="tab-section">
+  <div class="tab-container">
+
+    <!-- LEFT TABS -->
+    <div class="tab-buttons">
+      <button class="tab-btn active" data-tab="tab1">Service of All Kinds</button>
+      <button class="tab-btn" data-tab="tab2">Electrical Repair</button>
+      <button class="tab-btn" data-tab="tab3">Bodywork and Paint</button>
+      <button class="tab-btn" data-tab="tab4">Vetted Repairman</button>
+    </div>
+
+    <!-- RIGHT CONTENT -->
+    <div class="tab-content">
+
+      <div class="tab-panel active" id="tab1">
+        <h2>All <span>About Us</span> For The Repairing Of Your Car</h2>
+        <p>
+          Do not fuse your mind by looking at the service providers separately.
+          We are a one-stop solution for clients and businesses as well.
+          For many years, LMS has been a go-to choice for brake and maintenance,
+          tyre repair and fitting, punctures and other mending services.
+        </p>
+        <p>
+          If you want an epic ride in a chic car or take a heroic entrance,
+          your dream comes true if your vehicle is maintained properly.
+        </p>
+        <p>
+          A single cautious mending by big leagues will completely repair
+          your car’s nuts, bolts, and other damages without lengthy paperwork.
+        </p>
+      </div>
+
+      <div class="tab-panel" id="tab2">
+        <h2><span>Electrical</span> Repair Services</h2>
+        <p>
+          We provide complete electrical diagnostics including battery,
+          alternator, wiring, headlights, sensors, and ECU troubleshooting
+          using modern equipment.
+        </p>
+      </div>
+
+      <div class="tab-panel" id="tab3">
+        <h2><span>Bodywork</span> and Paint</h2>
+        <p>
+          From scratch removal to full body paint, denting and detailing,
+          our experts ensure factory-level finishing and premium quality.
+        </p>
+      </div>
+
+      <div class="tab-panel" id="tab4">
+        <h2><span>Vetted</span> Repairman</h2>
+        <p>
+          Our mechanics are background-verified, trained professionals
+          with years of experience, ensuring trust and transparency.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+<section class="info-section">
+  <div class="info-container">
+
+    <!-- LEFT COLUMN -->
+    <div class="info-box">
+      <h2 class="section-title red">We Are Easy to Catch</h2>
+
+      <div class="info-flex">
+        <img src="assets/about2.webp" alt="Mechanic Working">
+
+        <div class="info-text">
+          <p>
+            Connect with us once, and your queries will ultimately get answered.
+            We do not indulge our customers in a mess of lengthy booking
+            procedures and inconvenient paper works. You tell us your
+            requirement, and we start working on it instantly.
+          </p>
+
+          <ul class="arrow-list">
+            <li>Hassle-free customer experience</li>
+            <li>Experts with years of expertise</li>
+            <li>Simpler and easier form filling</li>
+            <li>All-time availability</li>
+            <li>Real-time booking</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT COLUMN -->
+    <div class="info-box">
+      <h2 class="section-title red">A Mission With a Vision</h2>
+
+      <div class="info-flex">
+        <img src="assets/about1.webp" alt="Car Polishing">
+
+        <div class="info-text">
+          <p>
+            LMS is more than a mom-and-pop service provider. We fuel the visions
+            of our customers with extensive services. We embark on the journey
+            of providing future-proof services because, for us, our clients are
+            assets.
+          </p>
+
+          <h4 class="sub-red">Exceptional Services</h4>
+          <p>
+            We provide customer-centric services with complete dedication and
+            focus.
+          </p>
+
+          <h4 class="sub-red">Entrusted for Lifetime</h4>
+          <p>
+            We pledge to go above and beyond to serve you.
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+ <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>PAS - PETROLHEADS AUTOMOTIVE</h3>
+                <p>We create modern, individual luxury by developing products that put our customer in the spotlight.</p>
+            </div>
+            <div class="footer-column">
+                <h3>DISCOVER</h3>
+                <ul>
+                    <li><a href="#">Tuning shop</a></li>
+                    <li><a href="#">Fashion shop</a></li>
+                    <li><a href="#">Cars4Sale</a></li>
+                    <li><a href="#">Who we are</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>GET IN TOUCH</h3>
+                <ul>
+                    <li><a href="#">Find a dealer</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">Revocation & Claim</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>INFORMATION</h3>
+                <ul>
+                    <li><a href="#">Imprint</a></li>
+                    <li><a href="#">Terms</a></li>
+                    <li><a href="#">Privacy policy</a></li>
+                    <li><a href="#">Cookie policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>NEWSLETTER</h3>
+                <p>Be part of the PAS - PETROLHEADS AUTOMOTIVE community and subscribe to the newsletter now!</p>
+                <button class="newsletter-btn">NEWSLETTER</button>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; PAS - PETROLHEADS AUTOMOTIVE 2017-2026</p>
+            <div class="language-selector">
+                <span class="globe-icon">&#127760;</span>
+                <select>
+                    <option>International - English</option>
+                </select>
+            </div>
+            <p>Accessibility</p>
+            <div class="social-icons">
+                <a href="#">&#128247;</a> <!-- IG -->
+                <a href="#">&#128250;</a> <!-- YT -->
+                <a href="#">&#128100;</a> <!-- IN -->
+                <a href="#">&#128040;</a> <!-- FB -->
+            </div>
+        </div>
+    </footer>
+
+<script>
+const counters = document.querySelectorAll(".counter");
+let started = false;
+
+function startCounting() {
+  if (started) return;
+  started = true;
+
+  counters.forEach(counter => {
+    const target = +counter.getAttribute("data-target");
+    const suffix = counter.getAttribute("data-suffix") || "";
+    let count = 0;
+    const speed = target / 100;
+
+    const updateCount = () => {
+      count += speed;
+      if (count < target) {
+        counter.innerText = Math.ceil(count) + suffix;
+        requestAnimationFrame(updateCount);
+      } else {
+        counter.innerText = target + suffix + "+";
+      }
+    };
+    updateCount();
+  });
+}
+
+window.addEventListener("scroll", () => {
+  const section = document.querySelector(".stats-section");
+  const sectionTop = section.getBoundingClientRect().top;
+  const screenHeight = window.innerHeight;
+
+  if (sectionTop < screenHeight - 100) {
+    startCounting();
+  }
+});
+
+const tabButtons = document.querySelectorAll(".tab-btn");
+const tabPanels = document.querySelectorAll(".tab-panel");
+
+tabButtons.forEach(btn => {
+  btn.addEventListener("click", () => {
+
+    tabButtons.forEach(b => b.classList.remove("active"));
+    tabPanels.forEach(p => p.classList.remove("active"));
+
+    btn.classList.add("active");
+    document.getElementById(btn.dataset.tab).classList.add("active");
+  });
+});
+
+</script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PAS - PETROLHEADS AUTOMOTIVE STUDIO</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Header -->
+<!-- Updated Sticky Header with new menu -->
+<header class="header">
+    <div class="logo">
+        <a href="index.html">
+        <img src="assets/tayyab.png" alt="PAS - PETROLHEADS AUTOMOTIVE" class="logo-img">
+        </a>
+    </div>
+    
+    <nav>
+        <ul class="nav-menu">
+            <li><a href="About-us.html">Who We Are</a></li>
+            <li><a href="#what-we-do">What We Do</a></li>
+            <li><a href="#car-brands">Car Brands</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+    </nav>
+</header>
+    <!-- Hero Section with 5-Video Slider -->
+    <section class="hero">
+        <div class="slider">
+            <!-- Slide 1 -->
+            <div class="slide active">
+                <video autoplay muted loop playsinline>
+                    <source src="assets/banner2.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="hero-content active">
+                    <h1>Unleash the Beast</h1>
+                    <p>High-Performance Supercars</p>
+                    <a href="#">Discover</a>
+                </div>
+            </div>
+            <!-- Slide 2 -->
+            <div class="slide">
+                <video autoplay muted loop playsinline>
+                    <source src="assets/banner1.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="hero-content">
+                    <h1>Precision Tuning</h1>
+                    <p>Custom Engine Mastery</p>
+                    <a href="#">Explore</a>
+                </div>
+            </div>
+            <!-- Slide 3 -->
+            <div class="slide">
+                <video autoplay muted loop playsinline>
+                    <source src="assets/banner3.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="hero-content">
+                    <h1>Classic Revival</h1>
+                    <p>Timeless Automotive Icons</p>
+                    <a href="#">View Collection</a>
+                </div>
+            </div>
+            <!-- Slide 4 -->
+            <div class="slide">
+                <video autoplay muted loop playsinline>
+                    <source src="assets/banner4.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="hero-content">
+                    <h1>Elite Sales</h1>
+                    <p>Exclusive Vehicle Marketplace</p>
+                    <a href="#">Shop Now</a>
+                </div>
+            </div>
+            <!-- Slide 5 -->
+            <div class="slide">
+                <video autoplay muted loop playsinline>
+                    <source src="assets/banner4.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="hero-content">
+                    <h1>Future of Speed</h1>
+                    <p>Innovative Automotive Visions</p>
+                    <a href="#">Learn More</a>
+                </div>
+            </div>
+        </div>
+        <!-- Underline Indicators -->
+        <div class="pagination">
+            <div class="underline active" onclick="showSlide(1)"></div>
+            <div class="underline" onclick="showSlide(2)"></div>
+            <div class="underline" onclick="showSlide(3)"></div>
+            <div class="underline" onclick="showSlide(4)"></div>
+            <div class="underline" onclick="showSlide(5)"></div>
+        </div>
+    </section>
+    <!-- New Section for Bottom Navigation -->
+    <section class="nav-section">
+        <nav class="bottom-nav">
+            <a href="tier1.html">Tier 1 </a>
+            <a href="tier2.html">Tier 2</a>
+            <a href="tier3.html">Tier 3</a>
+            <a href="tier4.html">Tier 4</a>
+        </nav>
+    </section>
+    <!-- Latest News Section -->
+    <section class="news-section">
+        <!-- Left News Card -->
+        <div class="news-card left">
+            <img src="assets/image1.webp" alt="PAS - PETROLHEADS AUTOMOTIVE in Snow" class="news-image">
+            <div class="news-content">
+                <h3 class="news-title">PAS - PETROLHEADS AUTOMOTIVE at Continental Winter High Performance Event 13-16.02.2026</h3>
+                <p class="news-desc">From January 20.01.2026 - hosted in Winter High-Performance Event once again</p>
+                <span class="news-date">20.01.2026</span>
+            </div>
+        </div>
+        <!-- Middle News Card -->
+        <div class="news-card middle">
+            <h2 class="middle-title">Latest News</h2>
+            <button class="discover-btn">DISCOVER MORE</button>
+        </div>
+        <!-- Right News Card -->
+        <div class="news-card right">
+            <img src="assets/image 2.jpg" alt="PAS - PETROLHEADS AUTOMOTIVE Marine Booth" class="news-image">
+            <div class="news-content">
+                <h3 class="news-title">PAS - PETROLHEADS AUTOMOTIVE Marine at BOOT 2026 in Düsseldorf</h3>
+                <p class="news-desc">15.01.2026 - Visit us at the PAS - PETROLHEADS AUTOMOTIVE Marine booth from January 17 to...</p>
+                <span class="news-date">15.01.2026</span>
+            </div>
+        </div>
+    </section>
+    <!-- Full Screen Video Section -->
+    <section class="full-video-section">
+        <video class="full-video" autoplay muted loop playsinline>
+            <source src="assets/banner3.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </section>
+    <!-- Half-Half Images Section -->
+    <section class="half-images-section">
+        <div class="half-image">
+            <img src="assets/image 9.webp" alt="Left Half Image">
+        </div>
+        <div class="half-image">
+            <img src="assets/image 10.jpg" alt="Right Half Image">
+        </div>
+    </section>
+    <!-- Exclusive Accessories Section - Multi-Item Carousel -->
+    <section class="accessories-section">
+        <div class="accessories-container">
+            <div class="accessories-header">
+                <h2>EXCLUSIVE ACCESSORIES FOR YOUR VEHICLE</h2>
+                <p>AVAILABLE NOW</p>
+            </div>
+            <div class="carousel">
+                <button class="carousel-btn prev">&lt;</button>
+                <div class="carousel-track" id="carouselTrack">
+                    <!-- Multiple products for multi-slide demo -->
+                    <div class="carousel-slide">
+                        <div class="product">
+                            <img src="assets/image 4.webp" alt="Leather Key Cover Black-Red">
+                            <h3>LEATHER KEY COVER BLACK-RED</h3>
+                            <p>for all Porsche 911 of the 992 series</p>
+                        </div>
+                    </div>
+                    <div class="carousel-slide">
+                        <div class="product">
+                            <img src="assets/image 5.webp" alt="PAS - PETROLHEADS AUTOMOTIVE Car Cover">
+                            <h3>PAS - PETROLHEADS AUTOMOTIVE CAR COVER</h3>
+                            <p>for your Porsche 911</p>
+                        </div>
+                    </div>
+                    <div class="carousel-slide">
+                        <div class="product">
+                            <img src="assets/image 6.webp" alt="PAS - PETROLHEADS AUTOMOTIVE Plate Holder">
+                            <h3>PAS - PETROLHEADS AUTOMOTIVE PLATE HOLDER</h3>
+                            <p>suitable for every vehicle</p>
+                        </div>
+                    </div>
+                    <!-- Additional products to enable multiple slides -->
+                    <div class="carousel-slide">
+                        <div class="product">
+                            <img src="assets/image 7.webp" alt="Wheel Caps">
+                            <h3>PAS - PETROLHEADS AUTOMOTIVE WHEEL CAPS</h3>
+                            <p>custom design for high-performance wheels</p>
+                        </div>
+                    </div>
+                    <div class="carousel-slide">
+                        <div class="product">
+                            <img src="assets/image 8.jpg" alt="Steering Wheel">
+                            <h3>PAS - PETROLHEADS AUTOMOTIVE STEERING WHEEL</h3>
+                            <p>ergonomic leather-wrapped for precision control</p>
+                        </div>
+                    </div>
+                    <div class="carousel-slide">
+                        <div class="product">
+                            <img src="assets/image 8.webp" alt="Exhaust Tip">
+                            <h3>PAS - PETROLHEADS AUTOMOTIVE EXHAUST TIP</h3>
+                            <p>premium stainless steel for enhanced sound</p>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-btn next">&gt;</button>
+            </div>
+            <!-- Carousel Indicators -->
+            <div class="carousel-indicators">
+                <div class="indicator active" onclick="goToSlide(0)"></div>
+                <div class="indicator" onclick="goToSlide(1)"></div>
+                <div class="indicator" onclick="goToSlide(2)"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section - Image + Form -->
+<section class="contact-section">
+    <div class="contact-container">
+        <!-- Left: Image -->
+        <div class="contact-image">
+            <img src="assets/image1.webp" alt="Luxury Car Interior" class="full-image">
+        </div>
+
+        <!-- Right: Contact Form -->
+        <div class="contact-form-container">
+            <div class="contact-form">
+                <h2>GET IN TOUCH</h2>
+                <p>Leave your details and we'll get back to you soon.</p>
+
+                <form id="contactForm">
+                    <div class="form-group">
+                        <input type="text" name="name" placeholder="Full Name *" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" name="phone" placeholder="Phone Number *" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="email" placeholder="Email Address *" required>
+                    </div>
+                    <div class="form-group">
+                        <select name="service" required>
+                            <option value="" disabled selected>Select Service *</option>
+                            <option value="tuning">Performance Tuning</option>
+                            <option value="supercars">Supercar Sales</option>
+                            <option value="classics">Classic Restoration</option>
+                            <option value="accessories">Exclusive Accessories</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <textarea name="message" rows="5" placeholder="Your Message *" required></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">SEND MESSAGE</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="solution-section">
+    <div class="solution-container">
+        <h2>
+            A Solution For <span class="highlight">Non-Solutions</span>
+        </h2>
+        <p class="solution-subtitle">
+            Our <span class="highlight">dynamited</span> professionals with years of experience at LMS handle your car <span class="highlight">mending</span> issues.
+        </p>
+
+        <div class="solution-cards">
+            <div class="solution-card">
+                <div class="icon-wrapper">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polyline points="12 6 12 12 16 14"></polyline>
+                    </svg>
+                </div>
+                <h3>Trusted By</h3>
+            </div>
+
+            <div class="solution-card">
+                <div class="icon-wrapper">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"></path>
+                        <line x1="16" y1="8" x2="2" y2="22"></line>
+                        <line x1="17.5" y1="6.5" x2="17.5" y2="6.5"></line>
+                    </svg>
+                </div>
+                <h3>Why Choose Us</h3>
+            </div>
+
+            <div class="solution-card">
+                <div class="icon-wrapper">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path>
+                    </svg>
+                </div>
+                <h3>Our Background</h3>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>PAS - PETROLHEADS AUTOMOTIVE</h3>
+                <p>We create modern, individual luxury by developing products that put our customer in the spotlight.</p>
+            </div>
+            <div class="footer-column">
+                <h3>DISCOVER</h3>
+                <ul>
+                    <li><a href="#">Tuning shop</a></li>
+                    <li><a href="#">Fashion shop</a></li>
+                    <li><a href="#">Cars4Sale</a></li>
+                    <li><a href="#">Who we are</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>GET IN TOUCH</h3>
+                <ul>
+                    <li><a href="#">Find a dealer</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">Revocation & Claim</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>INFORMATION</h3>
+                <ul>
+                    <li><a href="#">Imprint</a></li>
+                    <li><a href="#">Terms</a></li>
+                    <li><a href="#">Privacy policy</a></li>
+                    <li><a href="#">Cookie policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>NEWSLETTER</h3>
+                <p>Be part of the PAS - PETROLHEADS AUTOMOTIVE community and subscribe to the newsletter now!</p>
+                <button class="newsletter-btn">NEWSLETTER</button>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; PAS - PETROLHEADS AUTOMOTIVE 2017-2026</p>
+            <div class="language-selector">
+                <span class="globe-icon">&#127760;</span>
+                <select>
+                    <option>International - English</option>
+                </select>
+            </div>
+            <p>Accessibility</p>
+            <div class="social-icons">
+                <a href="#">&#128247;</a> <!-- IG -->
+                <a href="#">&#128250;</a> <!-- YT -->
+                <a href="#">&#128100;</a> <!-- IN -->
+                <a href="#">&#128040;</a> <!-- FB -->
+            </div>
+        </div>
+    </footer>
+    <script>
+        // JavaScript for Video Slider
+        let slideIndex = 1;
+        const slides = document.querySelectorAll('.slide');
+        const underlines = document.querySelectorAll('.underline');
+        const contents = document.querySelectorAll('.hero-content');
+        function showSlide(n) {
+            slideIndex = n;
+            slides.forEach(slide => slide.classList.remove('active'));
+            underlines.forEach(underline => underline.classList.remove('active'));
+            contents.forEach(content => content.classList.remove('active'));
+            slides[slideIndex - 1].classList.add('active');
+            underlines[slideIndex - 1].classList.add('active');
+            contents[slideIndex - 1].classList.add('active');
+            // Play video on active slide
+            slides[slideIndex - 1].querySelector('video').play();
+            // Pause inactive videos
+            pauseInactiveVideos();
+        }
+        function nextSlide() {
+            slideIndex = slideIndex === 5 ? 1 : slideIndex + 1;
+            showSlide(slideIndex);
+        }
+        // Auto-slide every 5 seconds
+        let intervalId = setInterval(nextSlide, 5000);
+        // Click underlines to jump
+        underlines.forEach((underline, index) => {
+            underline.addEventListener('click', () => showSlide(index + 1));
+        });
+        // Pause on hover
+        const hero = document.querySelector('.hero');
+        hero.addEventListener('mouseenter', () => clearInterval(intervalId));
+        hero.addEventListener('mouseleave', () => intervalId = setInterval(nextSlide, 5000));
+
+        // Sticky Navbar Background on Scroll
+     
+window.addEventListener('scroll', () => {
+    const header = document.querySelector('.header');
+    if (window.scrollY > 100) {           // after 100px scroll → add class
+        header.classList.add('scrolled');
+    } else {
+        header.classList.remove('scrolled');
+    }
+});
+
+        // Pause all videos except active one
+        function pauseInactiveVideos() {
+            slides.forEach((slide, index) => {
+                const video = slide.querySelector('video');
+                if (index + 1 !== slideIndex) {
+                    video.pause();
+                }
+            });
+        }
+
+        // Accessories Multi-Item Carousel JS
+        const track = document.getElementById('carouselTrack');
+        const slidesCarousel = document.querySelectorAll('.carousel-slide');
+        const indicators = document.querySelectorAll('.indicator');
+        let currentIdx = 0;
+        const visibleSlides = 3; // Number of slides visible at once
+        const totalSlides = slidesCarousel.length;
+        const maxIndex = Math.max(0, totalSlides - visibleSlides);
+
+        function updateCarousel() {
+            const slideWidth = slidesCarousel[0].offsetWidth + 20; // Include padding/gap
+            track.style.transform = `translateX(${-currentIdx * slideWidth}px)`;
+            // Update indicators (one for each full view)
+            indicators.forEach((ind, i) => ind.classList.toggle('active', i === currentIdx));
+        }
+
+        document.querySelector('.carousel-btn.next').addEventListener('click', () => {
+            if (currentIdx < maxIndex) {
+                currentIdx++;
+            } else {
+                currentIdx = 0; // Loop back
+            }
+            updateCarousel();
+        });
+
+        document.querySelector('.carousel-btn.prev').addEventListener('click', () => {
+            if (currentIdx > 0) {
+                currentIdx--;
+            } else {
+                currentIdx = maxIndex; // Loop to end
+            }
+            updateCarousel();
+        });
+
+        function goToSlide(n) {
+            currentIdx = n;
+            updateCarousel();
+        }
+
+        // Auto-slide for carousel (every 4 seconds, slide by 1)
+        setInterval(() => {
+            if (currentIdx < maxIndex) {
+                currentIdx++;
+            } else {
+                currentIdx = 0;
+            }
+            updateCarousel();
+        }, 4000);
+
+        // Initial setup
+        updateCarousel();
+    </script>
+</body>
+</html>

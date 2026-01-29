@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Petrolheads - Tier 3 Services</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #000000; /* Black background */
+            color: #FFFFFF; /* White text */
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            padding-top: 120px; /* To prevent content overlap with fixed header */
+        }
+
+        /* Navbar Styles */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 120px; /* Reduced black area */
+            padding: 15px 5%;
+            z-index: 1000;
+            transition: all 0.4s ease;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: transparent;
+        }
+
+        .header.scrolled {
+            background: rgba(0, 0, 0, 0.92);
+            backdrop-filter: blur(8px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+            padding: 12px 5%; /* Slightly smaller when scrolled */
+            height: 100px; /* Slightly reduce height on scroll */
+        }
+
+        .logo {
+            font-size: 0; /* Hide any fallback text size */
+        }
+
+        .logo-img {
+            height: 70px; /* Better size for navbar */
+            width: auto;
+            max-width: 220px;
+            transition: transform 0.3s ease;
+        }
+
+        .logo-img:hover {
+            transform: scale(1.06);
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 45px; /* Space between links */
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-menu li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-menu li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -6px;
+            left: 0;
+            background: #ff0000; /* Red underline on hover */
+            transition: width 0.3s ease;
+        }
+
+        .nav-menu li a:hover {
+            color: #ff0000;
+        }
+
+        .nav-menu li a:hover::after {
+            width: 100%;
+        }
+
+        .header-icons {
+            display: flex;
+            gap: 20px;
+        }
+
+        .header-icons svg {
+            width: 24px;
+            height: 24px;
+            fill: #fff;
+            transition: fill 0.3s ease;
+        }
+
+        .header-icons svg:hover {
+            fill: #ff0000; /* Red on hover for attractiveness */
+        }
+
+        /* Hero Header Styles */
+        .hero-header {
+            background-color: #FF0000; /* Red header, kept for brand */
+            color: #FFFFFF;
+            padding: 40px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden; /* Prevent image overflow */
+        }
+
+        .hero-header img {
+            width: 100%;
+            max-height: 300px;
+            object-fit: cover;
+            opacity: 0.8;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 0;
+            transition: transform 0.5s ease; /* Smooth zoom on load */
+        }
+
+        .hero-header:hover img {
+            transform: scale(1.05); /* Subtle zoom on hover */
+        }
+
+        .hero-header h1, .hero-header p {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Container and Sections */
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #1A1A1A; /* Dark gray for sections */
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(255, 0, 0, 0.2); /* Subtle red shadow */
+        }
+
+        h1 {
+            color: #FF0000; /* Red for main title */
+        }
+
+        h2 {
+            color: #FFFFFF; /* White for h2 to reduce red */
+            border-bottom: 2px solid #FF0000; /* Red accent border */
+            padding-bottom: 10px;
+            transition: color 0.3s ease;
+        }
+
+        h2:hover {
+            color: #FF0000; /* Hover effect for interactivity */
+        }
+
+        h3 {
+            color: #CCCCCC; /* Light gray for h3 */
+        }
+
+        ul {
+            list-style-type: square;
+            padding-left: 20px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+            padding: 20px;
+            background-color: #222222;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .section:hover {
+            transform: translateY(-5px); /* Lift on hover for attractiveness */
+            box-shadow: 0 4px 12px rgba(255, 0, 0, 0.3); /* Enhanced shadow */
+        }
+
+        .section img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            transition: opacity 0.3s ease;
+        }
+
+        .section img:hover {
+            opacity: 0.9; /* Subtle fade on hover */
+        }
+
+        .dos-donts {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .dos-donts div {
+            width: 48%;
+            min-width: 200px;
+        }
+
+        .dos-donts h3 {
+            text-align: center;
+            color: #FF0000; /* Red for emphasis */
+        }
+
+        /* Footer Styles */
+        .footer {
+            background-color: #fff;
+            color: #000;
+            padding: 40px 20px 20px;
+            font-family: Arial, sans-serif;
+            margin-top: 40px; /* Space from content */
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+        }
+
+        .footer-column h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        .footer-column p {
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-column ul li a {
+            color: #000;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .footer-column ul li a:hover {
+            color: #ff0000; /* Red hover for consistency */
+        }
+
+        .newsletter-btn {
+            background: #000;
+            color: #fff;
+            border: none;
+            padding: 12px 24px;
+            text-transform: uppercase;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background 0.3s;
+        }
+
+        .newsletter-btn:hover {
+            background: #ff0000; /* Red on hover */
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #ccc;
+            padding-top: 20px;
+            margin-top: 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .footer-bottom p {
+            font-size: 0.8rem;
+            opacity: 0.8;
+        }
+
+        .language-selector {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .language-selector select {
+            background: transparent;
+            border: 1px solid #000;
+            padding: 5px 10px;
+            font-size: 0.9rem;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .social-icons a {
+            display: inline-block;
+            width: 32px;
+            height: 32px;
+            background: #000;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 32px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: background 0.3s;
+        }
+
+        .social-icons a:hover {
+            background: #ff0000; /* Red on hover */
+        }
+
+        .globe-icon {
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+
+        /* Responsive Media Queries */
+        @media (max-width: 768px) {
+            .header {
+                height: 100px; /* Smaller on tablet */
+                padding: 10px 3%;
+            }
+
+            .logo-img {
+                height: 50px; /* Adjust logo size */
+            }
+
+            .nav-menu {
+                gap: 20px; /* Reduce gap */
+                flex-direction: column; /* Stack menu */
+                position: absolute;
+                top: 100px;
+                left: 0;
+                width: 100%;
+                background: rgba(0, 0, 0, 0.9);
+                padding: 20px;
+                display: none; /* Hide by default, need JS for toggle */
+            }
+
+            .header.scrolled .nav-menu {
+                top: 80px; /* Adjust for scrolled height */
+            }
+
+            /* For simplicity, show on tablet without hamburger, but stack */
+            .nav-menu {
+                display: flex; /* Keep flex for now */
+            }
+
+            .container {
+                padding: 15px;
+            }
+
+            .section {
+                padding: 15px;
+            }
+
+            .dos-donts div {
+                width: 100%; /* Stack on tablet */
+                margin-bottom: 20px;
+            }
+
+            .footer-container {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Adjust columns */
+                gap: 20px;
+            }
+
+            .hero-header {
+                padding: 30px 15px;
+            }
+
+            .hero-header img {
+                max-height: 250px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding-top: 100px; /* Adjust for smaller header */
+            }
+
+            .header {
+                height: 80px; /* Even smaller on mobile */
+                padding: 10px 2%;
+                flex-direction: column; /* Stack logo and menu */
+                justify-content: center;
+            }
+
+            .logo-img {
+                height: 40px; /* Smaller logo */
+                margin-bottom: 10px;
+            }
+
+            .nav-menu {
+                flex-direction: column;
+                gap: 15px;
+                align-items: center;
+            }
+
+            .nav-menu li a {
+                font-size: 1rem;
+            }
+
+            .container {
+                margin: 10px;
+                padding: 10px;
+            }
+
+            .section {
+                padding: 10px;
+                margin-bottom: 20px;
+            }
+
+            .hero-header {
+                padding: 20px 10px;
+            }
+
+            .hero-header h1 {
+                font-size: 1.5rem;
+            }
+
+            .hero-header p {
+                font-size: 1rem;
+            }
+
+            .hero-header img {
+                max-height: 200px;
+            }
+
+            .footer {
+                padding: 20px 10px;
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr; /* Single column on mobile */
+                gap: 30px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <a href="index.html">
+            <img src="assets/tayyab.png" alt="PAS - PETROLHEADS AUTOMOTIVE" class="logo-img">
+            </a>
+        </div>
+        
+        <nav>
+            <ul class="nav-menu">
+                <li><a href="About-us.html">Who We Are</a></li>
+                <li><a href="#what-we-do">What We Do</a></li>
+                <li><a href="#car-brands">Car Brands</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </nav>
+        <!-- Optional icons if needed -->
+        <div class="header-icons">
+            <!-- Add SVGs or icons here if required -->
+        </div>
+    </header>
+
+    <header class="hero-header">
+        <img src="assets/image 14.webp" alt="Advanced Vehicle Diagnostics Workshop">
+        <h1>PETROLHEADS – TIER 3 SERVICES</h1>
+        <p>DIAGNOSTICS & MAINTENANCE</p>
+    </header>
+    
+    <div class="container">
+        <div class="section">
+            <h2>1. WHY TIER 3 SERVICES EXIST</h2>
+            <p>Tier 3 services are not meant to compete with local garages or mass-service aggregators. They position Petrolheads as an engineering-first automotive consultant, allowing structured vehicle understanding and customer education.</p>
+        </div>
+        
+        <div class="section">
+            <h2>2. ADVANCED DIAGNOSTIC SERVICES</h2>
+            <img src="assets/image 16.webp" alt="ECU Diagnostics and Sensor Review">
+            <h3>2.1 What You Will Do</h3>
+            <ul>
+                <li>Full ECU diagnostics and fault code analysis</li>
+                <li>Live sensor data review</li>
+                <li>Brake, suspension, and steering inspection</li>
+                <li>Electrical and battery health assessment</li>
+                <li>Test drive for NVH and drivability evaluation</li>
+            </ul>
+            <h3>2.2 How to Do Diagnostics Smartly</h3>
+            <ul>
+                <li>Always charge for diagnostics</li>
+                <li>Provide a written diagnostic health report</li>
+                <li>Use findings to educate customers</li>
+                <li>Recommend phased solutions instead of pushing sales</li>
+            </ul>
+            <h3>2.3 Advantages of Diagnostics</h3>
+            <ul>
+                <li>High trust and credibility</li>
+                <li>Low consumable costs</li>
+                <li>Strong gateway to higher-tier services</li>
+            </ul>
+            <h3>2.4 Disadvantages & Risks</h3>
+            <ul>
+                <li>Customer may take the report elsewhere</li>
+                <li>Requires skilled interpretation</li>
+                <li>Time-consuming if poorly managed</li>
+            </ul>
+            <h3>2.5 Profit & Loss Scenarios (Diagnostics)</h3>
+            <p><strong>Profit Scenario:</strong></p>
+            <ul>
+                <li>High-margin standalone service</li>
+                <li>Converts into Tier 2 or Tier 1 projects</li>
+            </ul>
+            <p><strong>Loss Scenario:</strong></p>
+            <ul>
+                <li>One-time customers only</li>
+            </ul>
+            <p><strong>Risk Control:</strong></p>
+            <ul>
+                <li>Proper pricing</li>
+                <li>Position report as Petrolheads intellectual property</li>
+            </ul>
+        </div>
+        
+        <div class="section">
+            <h2>3. PREVENTIVE MAINTENANCE SERVICES</h2>
+            <img src="assets/image 15.webp" alt="Engine Oil and Filter Replacement">
+            <h3>3.1 What You Will Do</h3>
+            <ul>
+                <li>Engine oil, brake fluid, coolant replacement</li>
+                <li>Air, oil, and cabin filter replacement</li>
+                <li>Brake servicing</li>
+                <li>Suspension wear inspection</li>
+                <li>Long-drive reliability checks</li>
+            </ul>
+            <h3>3.2 How to Do Maintenance Smartly</h3>
+            <ul>
+                <li>Sell maintenance as packages</li>
+                <li>Avoid price-based competition</li>
+                <li>Focus on reliability and longevity</li>
+                <li>Refer heavy repairs externally</li>
+            </ul>
+            <h3>3.3 Advantages of Maintenance Services</h3>
+            <ul>
+                <li>Repeat customer visits</li>
+                <li>Predictable revenue flow</li>
+            </ul>
+            <h3>3.4 Disadvantages & Risks</h3>
+            <ul>
+                <li>Labour dependency</li>
+                <li>Lower margins than premium services</li>
+            </ul>
+            <h3>3.5 Profit & Loss Scenarios (Maintenance)</h3>
+            <p><strong>Profit Scenario:</strong></p>
+            <ul>
+                <li>Package-based pricing</li>
+                <li>OEM+ consumables</li>
+            </ul>
+            <p><strong>Loss Scenario:</strong></p>
+            <ul>
+                <li>Competing on price with local garages</li>
+            </ul>
+            <p><strong>Risk Control:</strong></p>
+            <ul>
+                <li>Maintain premium positioning</li>
+            </ul>
+        </div>
+        
+        <div class="section">
+            <h2>4. DOs & DON’Ts FOR TIER 3</h2>
+            <div class="dos-donts">
+                <div>
+                    <h3>DO:</h3>
+                    <ul>
+                        <li>Document every inspection</li>
+                        <li>Educate customers</li>
+                        <li>Use Tier 3 as a feeder to premium services</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>DON’T:</h3>
+                    <ul>
+                        <li>Offer free diagnostics</li>
+                        <li>Become a mass-service centre</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>5. FINAL POSITIONING</h2>
+            <p>Tier 3 services are strategic enablers, not profit centres alone. Their true value lies in trust, data, and converting it into higher-margin engineering services.</p>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>PAS - PETROLHEADS AUTOMOTIVE</h3>
+                <p>We create modern, individual luxury by developing products that put our customer in the spotlight.</p>
+            </div>
+            <div class="footer-column">
+                <h3>DISCOVER</h3>
+                <ul>
+                    <li><a href="#">Tuning shop</a></li>
+                    <li><a href="#">Fashion shop</a></li>
+                    <li><a href="#">Cars4Sale</a></li>
+                    <li><a href="#">Who we are</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>GET IN TOUCH</h3>
+                <ul>
+                    <li><a href="#">Find a dealer</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">Revocation & Claim</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>INFORMATION</h3>
+                <ul>
+                    <li><a href="#">Imprint</a></li>
+                    <li><a href="#">Terms</a></li>
+                    <li><a href="#">Privacy policy</a></li>
+                    <li><a href="#">Cookie policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>NEWSLETTER</h3>
+                <p>Be part of the PAS - PETROLHEADS AUTOMOTIVE community and subscribe to the newsletter now!</p>
+                <button class="newsletter-btn">NEWSLETTER</button>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; PAS - PETROLHEADS AUTOMOTIVE 2017-2026</p>
+            <div class="language-selector">
+                <span class="globe-icon">&#127760;</span>
+                <select>
+                    <option>International - English</option>
+                </select>
+            </div>
+            <p>Accessibility</p>
+            <div class="social-icons">
+                <a href="#">&#128247;</a> <!-- IG -->
+                <a href="#">&#128250;</a> <!-- YT -->
+                <a href="#">&#128100;</a> <!-- IN -->
+                <a href="#">&#128040;</a> <!-- FB -->
+            </div>
+        </div>
+    </footer>
+
+    <!-- Simple JS for scrolled class -->
+    <script>
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>

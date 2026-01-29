@@ -1,0 +1,107 @@
+class StripePayment {
+    static async initializeStripe() {
+        const ALLOWED_SHIPPING_COUNTRIES = ["DE", "AT", "BE", "HR", "CY", "EE", "FI", "FR", "GR", "IE", "IT", "LV", "LT", "LU", "MT", "NL", "PT", "SK", "SI", "ES"];
+        let country = $("meta#tracking-info").data('country') ?? '';
+        country = country.toString().toUpperCase();
+        console.log("Detected country: ", country);
+        if (!ALLOWED_SHIPPING_COUNTRIES.includes(country)) {
+            return;
+        }
+
+        const csrfToken = document.querySelector('meta[name=csrf]').content || '';
+        // Schritt 1: PaymentIntent vom Server holen
+        const intentResponse = await fetch("/service/stripe/create-intent?" + new URLSearchParams({__csrfToken: csrfToken}), {
+            method: "POST"
+        });
+        let intentData = null;
+        try {
+            if (!intentResponse.ok) {
+                throw new Error(`HTTP error! status: ${intentResponse.status}`);
+            }
+            intentData = await intentResponse.json();
+        } catch (error) {
+            console.error('Error fetching payment intent:', error, intentData);
+            return;
+        }
+
+        if (intentData.warning) {
+            console.log("Warning: ", intentData.warning);
+            return;
+        }
+
+        const {amount, clientSecret, publishableKey, lineItems} = intentData;
+
+        const stripe = Stripe(publishableKey);
+
+        // Schritt 2: Elements initialisieren
+        const elements = stripe.elements({
+            mode: 'payment',
+            amount: amount,
+            currency: 'eur'
+        });
+
+        let finishUrl = "";
+        let expressCheckoutElementContainer = document.getElementById('stripeAdditionalInfo');
+        if (expressCheckoutElementContainer) {
+            finishUrl = expressCheckoutElementContainer.getAttribute('data-url')
+        }
+
+        // Step 3: Create and mount the Express Checkout Element
+        const expressCheckoutElement = elements.create('expressCheckout', {
+            allowedShippingCountries: [country],
+            emailRequired: true,
+            shippingAddressRequired: true,
+            business: {
+                name: "BRABUS GmbH"
+            },
+            paymentMethods: {
+                googlePay: 'always',
+                applePay: 'always'
+            },
+            shippingRates: [{
+                id: 'standard shipping',
+                displayName: 'Standard shipping',
+                detail: 'delivery time can vary',
+                amount: amount >= 100000 ? 0 : amount > 50000 ? 1800 : amount > 25000 ? 1200: 600,
+                selected: true
+            }],
+            lineItems: lineItems,
+            paymentMethodOrder: ['paypal', 'googlePay', 'applePay']
+        });
+
+        expressCheckoutElement.mount('.stripe__express-checkout-element');
+
+        const handleError = (error) => {
+            const messageContainer = document.querySelector('.stripe__error-message');
+            messageContainer.textContent = error.message;
+        }
+
+        expressCheckoutElement.on('shippingaddresschange', async (event) => {
+            event.resolve({shippingRates: [{
+                    id: 'standard shipping',
+                    displayName: 'Standard shipping',
+                    detail: 'delivery time can vary',
+                    amount: amount >= 100000 ? 0 : amount > 50000 ? 1800 : amount > 25000 ? 1200: 600,
+                    selected: true
+                }]});
+        });
+
+        expressCheckoutElement.on('confirm', async (event) => {
+
+            // Schritt 3: Payment bestätigen
+            const result = await stripe.confirmPayment({
+                elements,
+                clientSecret,
+                confirmParams: {
+                    return_url: finishUrl
+                }
+            });
+
+            if (result.error) {
+                handleError(result.error);
+            }
+        });
+    }
+}
+
+document.addEventListener("DOMContentLoaded", StripePayment.initializeStripe);
