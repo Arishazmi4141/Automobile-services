@@ -5,26 +5,66 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PAS - PETROLHEADS AUTOMOTIVE STUDIO</title>
     <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-    <!-- Header -->
-<!-- Updated Sticky Header with new menu -->
-<header class="header">
-    <div class="logo">
-        <a href="index.html">
-        <img src="assets/tayyab.png" alt="PAS - PETROLHEADS AUTOMOTIVE" class="logo-img">
-        </a>
+  
+    <!-- Updated Sticky Header with hamburger menu -->
+    <header class="header">
+        <div class="logo">
+            <a href="index.html">
+            <img src="assets/tayyab.png" alt="PAS - PETROLHEADS AUTOMOTIVE" class="logo-img">
+            </a>
+        </div>
+        
+       <!-- Hamburger -->
+<div class="hamburger" id="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
+
+<!-- Sidebar -->
+<div class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+        <span class="close-btn" id="closeSidebar">✕</span>
     </div>
-    
-    <nav>
-        <ul class="nav-menu">
-            <li><a href="About-us.html">Who We Are</a></li>
-            <li><a href="#what-we-do">What We Do</a></li>
-            <li><a href="#car-brands">Car Brands</a></li>
-            <li><a href="contact.html">Contact Us</a></li>
-        </ul>
-    </nav>
-</header>
+
+    <ul class="menu">
+        <li><a href="index.html">HOME</a></li>
+
+          <li><a href="About-us.html">About Us </a></li>
+
+        <li class="has-dropdown">
+            <div class="menu-title">
+                <span>CARS</span>
+                <span class="toggle">+</span>
+            </div>
+            <ul class="submenu">
+                <li><a href="#">SUPERCARS</a></li>
+                <li><a href="#">TUNING</a></li>
+                <li><a href="#">CARS FOR SALE</a></li>
+                <li><a href="#">CLASSICS</a></li>
+                <li><a href="#">SONDERSCHUTZ</a></li>
+            </ul>
+        </li>
+
+
+        <li class="has-dropdown">
+            <div class="menu-title">
+                <span>WHAT WE DO</span>
+                <span class="toggle">+</span>
+            </div>
+            <ul class="submenu">
+                <li><a href="tier1.html">Tier 1</a></li>
+                <li><a href="tier2.html">Tier 2</a></li>
+                <li><a href="tier3.html">Tier 3</a></li>
+                <li><a href="tier4.html">Tier 4</a></li>
+            </ul>
+        </li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+</div>
+
+        </nav>
+    </header>
     <!-- Hero Section with 5-Video Slider -->
     <section class="hero">
         <div class="slider">
@@ -37,7 +77,7 @@
                 <div class="hero-content active">
                     <h1>Unleash the Beast</h1>
                     <p>High-Performance Supercars</p>
-                    <a href="#">Discover</a>
+                    
                 </div>
             </div>
             <!-- Slide 2 -->
@@ -49,7 +89,7 @@
                 <div class="hero-content">
                     <h1>Precision Tuning</h1>
                     <p>Custom Engine Mastery</p>
-                    <a href="#">Explore</a>
+                  
                 </div>
             </div>
             <!-- Slide 3 -->
@@ -61,7 +101,7 @@
                 <div class="hero-content">
                     <h1>Classic Revival</h1>
                     <p>Timeless Automotive Icons</p>
-                    <a href="#">View Collection</a>
+                    
                 </div>
             </div>
             <!-- Slide 4 -->
@@ -73,7 +113,7 @@
                 <div class="hero-content">
                     <h1>Elite Sales</h1>
                     <p>Exclusive Vehicle Marketplace</p>
-                    <a href="#">Shop Now</a>
+                  
                 </div>
             </div>
             <!-- Slide 5 -->
@@ -85,7 +125,7 @@
                 <div class="hero-content">
                     <h1>Future of Speed</h1>
                     <p>Innovative Automotive Visions</p>
-                    <a href="#">Learn More</a>
+                    
                 </div>
             </div>
         </div>
@@ -465,6 +505,39 @@ window.addEventListener('scroll', () => {
 
         // Initial setup
         updateCarousel();
+
+      
     </script>
+<script>
+const hamburger = document.getElementById("hamburger");
+const sidebar = document.getElementById("sidebar");
+const closeBtn = document.getElementById("closeSidebar");
+
+/* Toggle Sidebar on Hamburger Click */
+hamburger.addEventListener("click", () => {
+    sidebar.classList.toggle("active");
+});
+
+/* Close Sidebar on X Click */
+closeBtn.addEventListener("click", () => {
+    sidebar.classList.remove("active");
+});
+
+/* Dropdown Toggle */
+document.querySelectorAll(".has-dropdown").forEach(item => {
+    const title = item.querySelector(".menu-title");
+    const submenu = item.querySelector(".submenu");
+    const toggle = item.querySelector(".toggle");
+
+    title.addEventListener("click", () => {
+        const isOpen = submenu.style.display === "block";
+
+        submenu.style.display = isOpen ? "none" : "block";
+        toggle.textContent = isOpen ? "+" : "−";
+    });
+});
+</script>
+
+
 </body>
 </html>

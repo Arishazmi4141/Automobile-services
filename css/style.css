@@ -16,7 +16,7 @@
     top: 0;
     left: 0;
       width: 100%;
-    height: 120px;              /* 👈 black area kam ho jaayega */
+    height: 82px;              /* 👈 black area kam ho jaayega */
     padding: 0 20px;     
     z-index: 1000;
     transition: all 0.4s ease;
@@ -28,10 +28,10 @@
 }
 
 .header.scrolled {
-    background: rgba(0, 0, 0, 0.92);
-    backdrop-filter: blur(8px);
-    box-shadow: 0 4px 20px rgba(0,0,0,0.5);
-    padding: 12px 5%;          /* slightly smaller when scrolled */
+    background: transparent;
+    /* backdrop-filter: blur(5px);
+    box-shadow: 0 4px 20px rgba(194, 194, 194, 0.5); */
+    padding: 12px 5%;         
 }
 
 .logo-img {
@@ -88,7 +88,7 @@
 }
 
 .logo-img {
-    height: 180px;          /* Adjust this value to fit your design – try 45–60px */
+    height: 120px;          /* Adjust this value to fit your design – try 45–60px */
     width: auto;           /* Keeps aspect ratio */
     max-width: 220px;      /* Prevent it from getting too wide on large screens */
     display: block;
@@ -107,6 +107,110 @@
             height: 24px;
             fill: #fff;
         }
+
+        /* Hamburger */
+.hamburger {
+    position: fixed;
+    top: 30px;
+    right: 40px;
+    width: 30px;
+    cursor: pointer;
+    z-index: 2001;
+}
+.hamburger span {
+    display: block;
+    height: 2px;
+    background: #cccccc;
+    margin: 6px 0;
+}
+
+/* Sidebar */
+/* Sidebar (RIGHT SIDE) */
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: -380px;        /* 🔥 RIGHT se bahar */
+    left: auto;
+    width: 260px;
+    height: 100vh;
+    background: #d6d6d6;
+    padding: 40px;
+    transition: 0.4s ease;
+    z-index: 2000;
+    overflow-y: auto;
+}
+
+.sidebar.active {
+    right: 0;             /* 🔥 RIGHT se andar */
+}
+
+
+/* Close */
+.sidebar-header {
+    display: flex;
+    justify-content: flex-end;
+}
+/* Close Button Perfect Right */
+.close-btn {
+    position: absolute;
+    top: 30px;
+    left: 60px;   /* 🔥 right corner */
+    font-size: 28px;
+    cursor: pointer;
+    color: #000;
+}
+
+
+/* Menu */
+.menu {
+    list-style: none;
+    padding: 60px 0 0;
+}
+.menu li {
+    margin-bottom: 22px;
+}
+
+.menu a {
+    text-decoration: none;
+    font-size: 18px;
+    letter-spacing: 2px;
+    font-weight: 500;
+    color: #000;
+}
+
+/* Dropdown */
+.has-dropdown .menu-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    font-size: 18px;
+    letter-spacing: 2px;
+}
+
+.toggle {
+    font-size: 20px;
+}
+
+/* Submenu */
+.submenu {
+    list-style: none;
+    padding-left: 20px;
+    margin-top: 15px;
+    display: none;
+}
+
+.submenu li {
+    margin-bottom: 12px;
+}
+
+.submenu a {
+    font-size: 15px;
+    color: #333;
+    letter-spacing: 1.5px;
+}
+
+
         /* Hero Section with Video Slider */
         .hero {
             position: relative;
