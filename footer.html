@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* ─────────────── FOOTER ─────────────── */
+.footer {
+    background: #0a0a0a;
+    color: #cccccc;
+    padding: 80px 5% 40px;
+    font-family: Arial, Helvetica, sans-serif;
+    border-top: 1px solid #1a1a1a;
+}
+
+.footer-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 50px 40px;
+}
+
+.footer-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-column h3 {
+    color: #ffffff;
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-column ul li {
+    margin-bottom: 14px;
+}
+
+.footer-column a {
+    color: #cccccc;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+}
+
+.footer-column a:hover {
+    color: #ff6600;
+}
+
+/* Brand Column */
+.brand-column .footer-logo .logo {
+    font-size: 2.8rem;
+    font-weight: 900;
+    color: #ff6600;
+    letter-spacing: 4px;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 20px;
+}
+
+.footer-desc {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    max-width: 320px;
+}
+
+/* Newsletter */
+.newsletter {
+    margin-top: 30px;
+}
+
+.newsletter h4 {
+    color: #ffffff;
+    font-size: 1.05rem;
+    margin-bottom: 14px;
+}
+
+.newsletter-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.newsletter-form input {
+    padding: 14px 16px;
+    background: #111;
+    border: 1px solid #222;
+    color: white;
+    border-radius: 6px;
+    font-size: 0.95rem;
+}
+
+.newsletter-form input::placeholder {
+    color: #777;
+}
+
+.newsletter-btn {
+    background: #ff6600;
+    color: white;
+    border: none;
+    padding: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.newsletter-btn:hover {
+    background: #e65c00;
+    transform: translateY(-2px);
+}
+
+/* Bottom Bar */
+.footer-bottom {
+    max-width: 1400px;
+    margin: 60px auto 0;
+    padding-top: 40px;
+    border-top: 1px solid #1a1a1a;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    font-size: 0.9rem;
+    color: #888;
+}
+
+.social-icons {
+    display: flex;
+    gap: 20px;
+}
+
+.social-link {
+    color: #cccccc;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.3s;
+}
+
+.social-link:hover {
+    color: #ff6600;
+}
+
+.language-selector {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.language-selector select {
+    background: #111;
+    color: #ccc;
+    border: 1px solid #222;
+    padding: 8px 12px;
+    border-radius: 6px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .footer {
+        padding: 60px 5% 40px;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+        gap: 25px;
+    }
+
+    .social-icons {
+        justify-content: center;
+    }
+}
+    </style>
+</head>
+<body>
+    <footer class="footer">
+    <div class="footer-container">
+        <!-- Column 1: Logo + Description -->
+        <div class="footer-column brand-column">
+            <div class="footer-logo">
+                <a href="index.html" class="logo">PAS</a>
+            </div>
+            <p class="footer-desc">
+                Crafting modern luxury through precision engineering, bespoke tuning, 
+                and timeless automotive passion.
+            </p>
+        </div>
+
+        <!-- Column 2: Quick Links -->
+        <div class="footer-column">
+            <h3>Explore</h3>
+            <ul>
+                <li><a href="tier1.html">PAS Essential</a></li>
+                <li><a href="tier2.html">Care & Diagnostics</a></li>
+                <li><a href="tier3.html">Comfort & Safety</a></li>
+                <li><a href="tier4.html">Transformation Programme</a></li>
+                <li><a href="cars.html">Cars for Sale</a></li>
+            </ul>
+        </div>
+
+        <!-- Column 3: Services -->
+        <div class="footer-column">
+            <h3>Services</h3>
+            <ul>
+                <li><a href="lighting.html">Lighting & Visibility</a></li>
+                <li><a href="tech.html">Tech & Infotainment</a></li>
+                <li><a href="interior.html">Interior Comfort</a></li>
+                <li><a href="exterior.html">Exterior Styling</a></li>
+                <li><a href="protection.html">Protection & Care</a></li>
+            </ul>
+        </div>
+
+        <!-- Column 4: Contact & Newsletter -->
+        <div class="footer-column">
+            <h3>Contact</h3>
+            <ul class="contact-info">
+                <li><a href="contact.html">Get in Touch</a></li>
+                <li><a href="contact.html#booking">Book Consultation</a></li>
+            </ul>
+
+            <div class="newsletter">
+                <h4>Stay Updated</h4>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Your email address" required>
+                    <button type="submit" class="newsletter-btn">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bottom Bar -->
+    <div class="footer-bottom">
+        <div class="bottom-left">
+            <p>© 2017–2026 PAS - Petrolheads Automotive Studio. All Rights Reserved.</p>
+        </div>
+
+        <div class="bottom-center">
+            <div class="social-icons">
+                <a href="#" class="social-link" aria-label="Instagram">Instagram</a>
+                <a href="#" class="social-link" aria-label="YouTube">YouTube</a>
+                <a href="#" class="social-link" aria-label="LinkedIn">LinkedIn</a>
+                <a href="#" class="social-link" aria-label="Facebook">Facebook</a>
+            </div>
+        </div>
+
+        <div class="bottom-right">
+            <div class="language-selector">
+                <span class="globe">🌐</span>
+                <select>
+                    <option>International - English</option>
+                    <option>Deutsch</option>
+                    <option>Русский</option>
+                </select>
+            </div>
+        </div>
+    </div>
+</footer>
+</body>
+</html>
